@@ -2,189 +2,784 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sharan The Analyst</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharan | Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Sharan, aspiring data analyst skilled in SQL, Python, Power BI, Tableau, and data storytelling." />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: white;
+    :root{
+      --bg:#07111f;
+      --bg2:#0b1728;
+      --panel:rgba(255,255,255,0.06);
+      --panel-strong:rgba(255,255,255,0.09);
+      --border:rgba(255,255,255,0.11);
+      --text:#f8fbff;
+      --muted:#b7c5d6;
+      --soft:#8ea2b8;
+      --accent:#60a5fa;
+      --accent2:#22d3ee;
+      --accent3:#a78bfa;
+      --shadow:0 20px 50px rgba(0,0,0,.28);
+      --radius:24px;
+      --max:1180px;
     }
 
-    a { text-decoration: none; color: inherit; }
-
-    /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(#0b0f19cc,#0b0f19cc);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(96,165,250,.18), transparent 24%),
+        radial-gradient(circle at 85% 12%, rgba(34,211,238,.13), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(167,139,250,.12), transparent 24%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height:100vh;
     }
 
-    .hero h1 {
-      font-size: 70px;
-      margin: 0;
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    .hero p {
-      max-width: 700px;
-      color: #cbd5e1;
-      margin-top: 10px;
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:30;
+      backdrop-filter: blur(16px);
+      background:rgba(7,17,31,.56);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
-    .btn {
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #06b6d4;
-      border-radius: 30px;
-      font-weight: bold;
-      display: inline-block;
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 0;
     }
 
-    .socials {
-      margin-top: 20px;
-      color: #94a3b8;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:.02em;
     }
 
-    /* SECTION */
-    .section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
+    .brand-badge{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#06111e;
+      box-shadow:var(--shadow);
+      font-weight:800;
     }
 
-    .section h2 {
-      font-size: 32px;
+    .nav-links{
+      display:flex;
+      gap:24px;
+      color:var(--muted);
+      font-size:15px;
     }
 
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 30px;
+    .nav-links a:hover{color:#fff}
+
+    .hero{
+      padding:72px 0 40px;
     }
 
-    .card {
-      background: #111827;
-      border-radius: 15px;
-      padding: 20px;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:stretch;
     }
 
-    .card h3 {
-      margin: 10px 0;
+    .glass{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
 
-    .card p {
-      color: #cbd5e1;
+    .hero-card{
+      padding:36px;
+      position:relative;
+      overflow:hidden;
     }
 
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -80px -90px auto;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(96,165,250,.22), transparent 65%);
+      pointer-events:none;
     }
 
-    .box {
-      background: #111827;
-      padding: 20px;
-      border-radius: 15px;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.09);
+      color:#d8e7f7;
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #94a3b8;
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      box-shadow:0 0 18px rgba(34,211,238,.55);
     }
 
-    @media(max-width:800px){
-      .projects, .about {
-        grid-template-columns: 1fr;
+    h1{
+      font-size:clamp(40px,6vw,74px);
+      line-height:1.02;
+      margin:20px 0 16px;
+      letter-spacing:-.03em;
+    }
+
+    .gradient{
+      background:linear-gradient(135deg, #ffffff 0%, #dbeafe 40%, #93c5fd 70%, #67e8f9 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.8;
+      max-width:700px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#04111c;
+      border:none;
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      color:#fff;
+    }
+
+    .hero-side{
+      padding:28px;
+      display:grid;
+      gap:16px;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .stat{
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .stat-label{
+      color:var(--soft);
+      font-size:13px;
+      margin-bottom:8px;
+    }
+
+    .stat-value{
+      font-size:22px;
+      font-weight:800;
+    }
+
+    .hero-note{
+      padding:18px;
+      border-radius:20px;
+      background:linear-gradient(135deg, rgba(96,165,250,.12), rgba(34,211,238,.08));
+      border:1px solid rgba(255,255,255,.08);
+      color:#d9ebfb;
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .social-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:6px;
+    }
+
+    .social-link{
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.09);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .social-link:hover{color:#fff}
+
+    section{
+      padding:28px 0;
+    }
+
+    .section-head{
+      margin-bottom:22px;
+    }
+
+    .kicker{
+      color:#93c5fd;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size:34px;
+      letter-spacing:-.02em;
+    }
+
+    .section-sub{
+      margin:0;
+      color:var(--soft);
+      max-width:760px;
+      line-height:1.8;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .panel{
+      padding:26px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .skill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:#e7f2ff;
+      font-size:14px;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:22px;
+    }
+
+    .project-card{
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .thumb{
+      min-height:210px;
+      padding:26px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.18)),
+        linear-gradient(135deg, rgba(34,211,238,.25), rgba(96,165,250,.18) 45%, rgba(167,139,250,.18));
+    }
+
+    .thumb::after{
+      content:"";
+      position:absolute;
+      inset:auto -30px -40px auto;
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.18), transparent 65%);
+    }
+
+    .thumb-label{
+      position:relative;
+      z-index:1;
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(7,17,31,.55);
+      border:1px solid rgba(255,255,255,.14);
+      color:#dff5ff;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:700;
+    }
+
+    .project-body{
+      padding:24px;
+    }
+
+    .project-title{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.22;
+      letter-spacing:-.02em;
+    }
+
+    .project-desc{
+      color:var(--muted);
+      margin:0 0 18px;
+      line-height:1.8;
+    }
+
+    .bullets{
+      margin:0 0 20px;
+      padding-left:18px;
+      color:#e6f0fb;
+    }
+
+    .bullets li{
+      margin:10px 0;
+      line-height:1.65;
+    }
+
+    .project-footer{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:8px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .tag{
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:13px;
+      color:#dbeafe;
+    }
+
+    .project-link{
+      padding:11px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:700;
+      color:#f4faff;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:22px;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .contact-item{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      word-break:break-word;
+    }
+
+    .contact-item strong{
+      color:#fff;
+      display:block;
+      margin-bottom:4px;
+    }
+
+    footer{
+      padding:34px 0 50px;
+      color:var(--soft);
+      text-align:center;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .about-grid,
+      .projects-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .nav-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+      }
+      .nav-links{
+        flex-wrap:wrap;
+        gap:14px;
+      }
+      .hero-card,
+      .hero-side,
+      .panel,
+      .project-body{
+        padding:22px;
+      }
+      .stat-grid{
+        grid-template-columns:1fr;
+      }
+      .thumb{
+        min-height:180px;
+      }
+      .section-title{
+        font-size:28px;
+      }
+      .project-title{
+        font-size:24px;
       }
     }
   </style>
 </head>
-
 <body>
-
-<!-- HERO -->
-<section class="hero">
-  <h1>Sharan The Analyst</h1>
-  <p>Data Analyst skilled in SQL, Python, Power BI, Tableau and data storytelling.</p>
-
-  <a href="#projects" class="btn">Continue</a>
-
-  <div class="socials">
-    <a href="https://github.com/manisharan0902-netizen" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/mani-sandela" target="_blank">LinkedIn</a> |
-    <a href="mailto:manisharan0902@gmail.com">Email</a>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <h2>My Projects</h2>
-
-  <div class="projects">
-
-    <div class="card">
-      <h3>AI vs Human Content Dashboard</h3>
-      <p>Power BI dashboard comparing AI and human content quality.</p>
-      <a href="https://github.com/manisharan0902-netizen" target="_blank">View Project</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge">S</div>
+        <div>Sharan The Analyst</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="card">
-      <h3>Airline Review Analysis</h3>
-      <p>Python project analyzing airline reviews and predictions.</p>
-      <a href="https://github.com/manisharan0902-netizen" target="_blank">View Project</a>
-    </div>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="glass hero-card">
+          <div class="eyebrow"><span class="dot"></span> Data Analyst Portfolio</div>
+          <h1>Hi, I’m <span class="gradient">Sharan</span> — I turn data into decisions.</h1>
+          <p>
+            I build dashboards, analyze business data, and create practical projects using SQL, Python,
+            Power BI, Tableau, and Excel. My work focuses on clarity, insight, and strong visual storytelling.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          </div>
+        </div>
 
-    <div class="card">
-      <h3>Walmart Retail Analysis</h3>
-      <p>Visual analytics project on Walmart sales performance.</p>
-      <a href="https://github.com/manisharan0902-netizen" target="_blank">View Project</a>
-    </div>
+        <div class="glass hero-side">
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-label">Core Stack</div>
+              <div class="stat-value">SQL • Python • BI</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Focus</div>
+              <div class="stat-value">Analytics & Dashboards</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Portfolio Type</div>
+              <div class="stat-value">Projects + Insights</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Career Goal</div>
+              <div class="stat-value">Data Analyst Role</div>
+            </div>
+          </div>
 
-    <div class="card">
-      <h3>E-Commerce SQL Analysis</h3>
-      <p>SQL queries for customer spending and revenue insights.</p>
-      <a href="https://github.com/manisharan0902-netizen" target="_blank">View Project</a>
-    </div>
+          <div class="hero-note">
+            Project areas include airline review analytics, AI vs human content evaluation,
+            Walmart retail visual analytics, e-commerce customer revenue analysis, and ride-sharing demand analysis.
+          </div>
 
-  </div>
-</section>
+          <div class="social-row">
+            <a class="social-link" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="social-link" href="https://www.linkedin.com/in/mani-sandela" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="social-link" href="mailto:manisharan0902@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- ABOUT -->
-<section class="section">
-  <div class="about">
+    <section id="about">
+      <div class="section-head">
+        <div class="kicker">About</div>
+        <h2 class="section-title">A premium portfolio built around real project work</h2>
+        <p class="section-sub">
+          I’m an aspiring data analyst with hands-on experience in business intelligence, exploratory analysis,
+          data cleaning, dashboard development, and storytelling with data. I enjoy transforming raw datasets into
+          clean visual narratives and actionable business insights.
+        </p>
+      </div>
 
-    <div class="box">
-      <h2>About Me</h2>
-      <p>
-        Aspiring Data Analyst with strong skills in SQL, Python, Power BI, and Tableau.
-        I transform raw data into meaningful insights and dashboards.
-      </p>
-    </div>
+      <div class="about-grid">
+        <div class="glass panel">
+          <h3 style="margin-top:0">What I bring</h3>
+          <p class="section-sub" style="max-width:none">
+            Strong foundations in SQL querying, Python-based analysis, visual reporting, and business-focused thinking.
+            My portfolio reflects work across machine learning, dashboarding, retail analytics, and operational analysis.
+          </p>
+        </div>
+        <div class="glass panel" id="skills">
+          <h3 style="margin-top:0">Skills & Tools</h3>
+          <div class="skills">
+            <span class="skill">SQL</span>
+            <span class="skill">Python</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">Excel</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">Scikit-learn</span>
+            <span class="skill">Data Cleaning</span>
+            <span class="skill">EDA</span>
+            <span class="skill">Dashboard Design</span>
+            <span class="skill">Data Visualization</span>
+            <span class="skill">Business Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="box">
-      <h2>Contact</h2>
-      <p>Email: manisharan0902@gmail.com</p>
-      <p>GitHub: manisharan0902-netizen</p>
-      <p>LinkedIn: mani-sandela</p>
-    </div>
+    <section id="projects">
+      <div class="section-head">
+        <div class="kicker">Projects</div>
+        <h2 class="section-title">Selected analytics projects</h2>
+        <p class="section-sub">
+          These projects highlight practical analytics work across BI dashboards, Python analysis, visual analytics,
+          and SQL-based business problem solving.
+        </p>
+      </div>
 
-  </div>
-</section>
+      <div class="projects-grid">
+        <article class="glass project-card">
+          <div class="thumb"><span class="thumb-label">Power BI Dashboard</span></div>
+          <div class="project-body">
+            <h3 class="project-title">AI vs Human Content Quality Dashboard</h3>
+            <p class="project-desc">
+              Built an interactive Power BI dashboard to compare AI-generated and human-written content using
+              quality, sentiment, plagiarism, and text-length indicators.
+            </p>
+            <ul class="bullets">
+              <li>Compared AI and human samples across multiple performance measures</li>
+              <li>Used dashboard filters to support topic and label-level exploration</li>
+              <li>Presented technical outputs in a clear business-friendly format</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">DAX</span>
+                <span class="tag">Dashboarding</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </div>
+        </article>
 
-<footer>
-  © 2026 Sharan The Analyst
-</footer>
+        <article class="glass project-card">
+          <div class="thumb"><span class="thumb-label">Python Project</span></div>
+          <div class="project-body">
+            <h3 class="project-title">Airline Passenger Review Analytics & Seat Type Classification</h3>
+            <p class="project-desc">
+              Analyzed airline review data to identify satisfaction patterns and developed a machine learning workflow
+              for seat type classification based on review-related features.
+            </p>
+            <ul class="bullets">
+              <li>Performed preprocessing, imputation, and correlation analysis</li>
+              <li>Explored model behavior across multiple KNN configurations</li>
+              <li>Connected review patterns to passenger experience insights</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Scikit-learn</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </div>
+        </article>
 
+        <article class="glass project-card">
+          <div class="thumb"><span class="thumb-label">Visual Analytics</span></div>
+          <div class="project-body">
+            <h3 class="project-title">Walmart Retail Performance Visual Analytics</h3>
+            <p class="project-desc">
+              Explored Walmart transaction data to examine sales, profit, shipping costs, category trends,
+              and customer segment performance through visual analysis.
+            </p>
+            <ul class="bullets">
+              <li>Answered business questions around profitability and regional performance</li>
+              <li>Used visuals to communicate retail trends and operational findings</li>
+              <li>Focused on business storytelling through interactive analytics</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Tableau</span>
+                <span class="tag">Retail Analytics</span>
+                <span class="tag">Visualization</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass project-card">
+          <div class="thumb"><span class="thumb-label">SQL Analysis</span></div>
+          <div class="project-body">
+            <h3 class="project-title">E-Commerce Customer & Revenue Intelligence</h3>
+            <p class="project-desc">
+              Used SQL to analyze customer spending, product performance, repeat customer behavior,
+              country-level revenue, and monthly revenue trends.
+            </p>
+            <ul class="bullets">
+              <li>Identified top customers and high-revenue markets</li>
+              <li>Measured product demand and business performance trends</li>
+              <li>Applied joins, aggregations, subqueries, and window functions</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">SQL</span>
+                <span class="tag">Joins</span>
+                <span class="tag">Window Functions</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass project-card">
+          <div class="thumb"><span class="thumb-label">SQL Analysis</span></div>
+          <div class="project-body">
+            <h3 class="project-title">Ride-Sharing Demand & Revenue Analysis</h3>
+            <p class="project-desc">
+              Analyzed ride demand, city-level revenue, user behavior, and driver performance
+              to transform ride-sharing data into operational insights.
+            </p>
+            <ul class="bullets">
+              <li>Ranked cities by revenue and ride activity</li>
+              <li>Identified top users and demand patterns</li>
+              <li>Converted transactional data into business-facing analysis</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">SQL</span>
+                <span class="tag">Analytics</span>
+                <span class="tag">Operations</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div class="kicker">Contact</div>
+        <h2 class="section-title">Let’s connect</h2>
+        <p class="section-sub">
+          I’m open to data analyst opportunities, portfolio feedback, and professional connections.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="glass panel">
+          <h3 style="margin-top:0">Contact Details</h3>
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Name</strong>
+              Sharan
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:manisharan0902@gmail.com">manisharan0902@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <strong>GitHub</strong>
+              <a href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">github.com/manisharan0902-netizen</a>
+            </div>
+            <div class="contact-item">
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/mani-sandela" target="_blank" rel="noopener noreferrer">linkedin.com/in/mani-sandela</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass panel">
+          <h3 style="margin-top:0">Portfolio Note</h3>
+          <p class="section-sub" style="max-width:none">
+            Replace each project button with the exact link to that specific project when you’re ready.
+            For now, the buttons point to your GitHub profile so every button works.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Sharan • Data Analyst Portfolio
+    </footer>
+  </main>
 </body>
 </html>
