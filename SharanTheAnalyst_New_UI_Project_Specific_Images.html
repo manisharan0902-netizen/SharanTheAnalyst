@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharan | Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Sharan, aspiring data analyst skilled in SQL, Python, Power BI, Tableau, Excel, and data storytelling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff8f1;
+      --bg2:#fef3c7;
+      --ink:#172033;
+      --muted:#5d6778;
+      --card:#ffffff;
+      --border:#ecdcc3;
+      --accent:#ff6b6b;
+      --accent2:#7c3aed;
+      --accent3:#0ea5a4;
+      --accent4:#f59e0b;
+      --shadow:0 18px 50px rgba(23,32,51,.10);
+      --radius:28px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(245,158,11,.14), transparent 18%),
+        radial-gradient(circle at top right, rgba(124,58,237,.12), transparent 18%),
+        linear-gradient(180deg, var(--bg), #fffdf8 35%, #fffaf3 100%);
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max), calc(100% - 32px));margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:90;
+      backdrop-filter:blur(16px);
+      background:rgba(255,248,241,.78);
+      border-bottom:1px solid rgba(236,220,195,.8);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;padding:16px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand-mark{
+      width:44px;height:44px;border-radius:16px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;font-weight:900;box-shadow:var(--shadow)
+    }
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-weight:700}
+    .nav-links a:hover{color:var(--accent2)}
+    .hero{padding:30px 0 18px}
+    .hero-wrap{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;
+    }
+    .hero-main{
+      min-height:580px;
+      border-radius:36px;
+      position:relative;overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(23,32,51,.60), rgba(23,32,51,.28)),
+        url("https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      box-shadow:var(--shadow);
+      padding:42px;
+      display:flex;flex-direction:column;justify-content:flex-end;
+    }
+    .hero-main::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(23,32,51,.15) 100%);
+      pointer-events:none;
+    }
+    .hero-chip{
+      position:relative;z-index:2;
+      width:max-content;
+      padding:10px 16px;border-radius:999px;
+      color:white;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    h1{
+      position:relative;z-index:2;
+      margin:16px 0 14px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(42px,6vw,74px);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      color:white;
+      max-width:760px;
+    }
+    .hero-main p{
+      position:relative;z-index:2;
+      max-width:740px;
+      color:#eef2ff;
+      font-size:18px;line-height:1.8;margin:0;
+    }
+    .cta-row{position:relative;z-index:2;display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 22px;border-radius:999px;font-weight:800;transition:.22s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:white;color:var(--ink)}
+    .btn-secondary{background:rgba(255,255,255,.14);color:white;border:1px solid rgba(255,255,255,.18)}
+    .hero-side{
+      display:grid;gap:18px;
+    }
+    .panel{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+    .stats{
+      display:grid;grid-template-columns:1fr 1fr;gap:16px;
+    }
+    .stat{
+      border-radius:24px;padding:18px;
+      color:white;
+    }
+    .stat:nth-child(1){background:linear-gradient(135deg,#ff6b6b,#f59e0b)}
+    .stat:nth-child(2){background:linear-gradient(135deg,#7c3aed,#ec4899)}
+    .stat:nth-child(3){background:linear-gradient(135deg,#0ea5a4,#06b6d4)}
+    .stat:nth-child(4){background:linear-gradient(135deg,#172033,#334155)}
+    .stat small{display:block;opacity:.85;margin-bottom:8px;font-weight:700}
+    .stat strong{font-size:22px;line-height:1.2}
+    .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .social{
+      padding:10px 14px;border-radius:999px;background:#fff7ed;border:1px solid var(--border);
+      color:var(--ink);font-weight:700
+    }
+    section{padding:28px 0}
+    .section-head{margin-bottom:20px}
+    .kicker{
+      color:var(--accent2);font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:800;margin-bottom:8px;
+    }
+    .section-title{
+      margin:0 0 10px;font-size:34px;letter-spacing:-.03em;font-family:"Space Grotesk",sans-serif;
+    }
+    .section-sub{margin:0;color:var(--muted);max-width:780px;line-height:1.8}
+    .about-grid,.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .skills{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .skill{
+      padding:10px 14px;border-radius:999px;background:#fff7ed;border:1px solid var(--border);font-weight:700;
+    }
+    .projects-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;
+    }
+    .project{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:.24s ease;
+    }
+    .project:hover{transform:translateY(-8px) rotate(-.3deg)}
+    .project-top{
+      min-height:250px;
+      position:relative;
+      display:flex;align-items:flex-end;
+      padding:22px;
+      color:white;
+      background-size:cover;background-position:center;
+    }
+    .project-top::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(23,32,51,.72));
+    }
+    .project-chip{
+      position:relative;z-index:2;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .img-powerbi{
+      background-image:url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80");
+    }
+    .img-python{
+      background-image:url("https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1200&q=80");
+    }
+    .img-tableau{
+      background-image:url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80");
+    }
+    .img-sql-ecom{
+      background-image:url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80");
+    }
+    .img-sql-ride{
+      background-image:url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80");
+    }
+    .project-body{padding:24px}
+    .project-body h3{
+      margin:0 0 10px;font-size:28px;line-height:1.2;letter-spacing:-.03em;font-family:"Space Grotesk",sans-serif;
+    }
+    .project-body p{margin:0 0 18px;color:var(--muted);line-height:1.8}
+    .bullets{margin:0 0 18px;padding-left:20px}
+    .bullets li{margin:10px 0;line-height:1.65}
+    .project-footer{
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px
+    }
+    .tags{display:flex;gap:10px;flex-wrap:wrap}
+    .tag{
+      padding:8px 12px;border-radius:999px;background:#f5f3ff;border:1px solid #e9ddff;font-size:13px;font-weight:700;color:#5b21b6
+    }
+    .project-link{
+      padding:12px 16px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;font-weight:800
+    }
+    .contact-list{display:grid;gap:14px;margin-top:18px}
+    .contact-item{
+      padding:16px 18px;border-radius:18px;background:#fff7ed;border:1px solid var(--border);color:var(--muted)
+    }
+    .contact-item strong{display:block;color:var(--ink);margin-bottom:4px}
+    footer{padding:36px 0 48px;text-align:center;color:var(--muted)}
+    @media (max-width:980px){
+      .hero-wrap,.about-grid,.contact-grid,.projects-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .nav-inner{flex-direction:column;align-items:flex-start;gap:12px}
+      .nav-links{flex-wrap:wrap;gap:14px}
+      .hero-main,.panel,.project-body{padding:22px}
+      .stats{grid-template-columns:1fr}
+      .section-title{font-size:28px}
+      .project-body h3{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div>Sharan The Analyst</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-wrap">
+        <div class="hero-main">
+          <div class="hero-chip">Creative Data Analyst Portfolio</div>
+          <h1>Data stories, dashboards, and SQL projects with a brighter new look.</h1>
+          <p>
+            I create practical analytics work using SQL, Python, Power BI, Tableau, and Excel.
+            This refreshed portfolio uses a different color system, a warmer UI style, and project visuals that match each project type.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">See My Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="panel">
+            <div class="stats">
+              <div class="stat"><small>Core Stack</small><strong>SQL • Python • BI</strong></div>
+              <div class="stat"><small>Strength</small><strong>Visual Storytelling</strong></div>
+              <div class="stat"><small>Focus</small><strong>Dashboards & Insights</strong></div>
+              <div class="stat"><small>Goal</small><strong>Data Analyst Role</strong></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3 style="margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:26px;">Quick Snapshot</h3>
+            <p class="section-sub" style="max-width:none">
+              Portfolio areas include AI content analysis, airline review analytics, retail dashboards,
+              e-commerce SQL insights, and ride-sharing business analysis.
+            </p>
+            <div class="socials">
+              <a class="social" href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a class="social" href="https://www.linkedin.com/in/mani-sandela" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="social" href="mailto:manisharan0902@gmail.com">Email</a>
+              <a class="social" href="tel:+910000000000">Phone</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <div class="kicker">About</div>
+        <h2 class="section-title">A different style, built around real analytics work</h2>
+        <p class="section-sub">
+          I’m an aspiring data analyst with hands-on experience in exploratory analysis, dashboard design,
+          data cleaning, business-focused SQL work, and storytelling with data.
+        </p>
+      </div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3 style="margin-top:0;font-family:'Space Grotesk',sans-serif;font-size:26px;">What I bring</h3>
+          <p class="section-sub" style="max-width:none">
+            Strong foundations in SQL querying, Python analysis, Power BI reporting, Tableau visualization,
+            and practical business insight generation through clean, understandable analytics.
+          </p>
+        </div>
+        <div class="panel" id="skills">
+          <h3 style="margin-top:0;font-family:'Space Grotesk',sans-serif;font-size:26px;">Skills & Tools</h3>
+          <div class="skills">
+            <span class="skill">SQL</span>
+            <span class="skill">Python</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">Excel</span>
+            <span class="skill">Pandas</span>
+            <span class="skill">Scikit-learn</span>
+            <span class="skill">EDA</span>
+            <span class="skill">Data Cleaning</span>
+            <span class="skill">Dashboard Design</span>
+            <span class="skill">Visualization</span>
+            <span class="skill">Business Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div class="kicker">Projects</div>
+        <h2 class="section-title">Project cards with visuals matched to the project type</h2>
+        <p class="section-sub">
+          Each project now uses a more relevant image and a fully different UI style from the earlier version.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project">
+          <div class="project-top img-powerbi"><span class="project-chip">Power BI Dashboard</span></div>
+          <div class="project-body">
+            <h3>AI vs Human Content Quality Dashboard</h3>
+            <p>Interactive Power BI dashboard comparing AI-generated and human-written content across multiple quality indicators.</p>
+            <ul class="bullets">
+              <li>Compared AI and human content across quality, sentiment, and plagiarism metrics</li>
+              <li>Used interactive filters to support deeper business exploration</li>
+              <li>Presented technical findings in a clean decision-friendly dashboard</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Dashboarding</span>
+              </div>
+              <a class="project-link" href="https://app.powerbi.com/links/JEiNehhmkA?ctid=bd5ee59d-a999-48c9-8518-69f992d35591&pbi_source=linkShare" target="_blank" rel="noopener noreferrer">View Dashboard</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top img-python"><span class="project-chip">Python Project</span></div>
+          <div class="project-body">
+            <h3>Airline Passenger Review Analytics</h3>
+            <p>Python-based review analytics and seat type classification using airline passenger review data and machine learning workflows.</p>
+            <ul class="bullets">
+              <li>Performed preprocessing, imputation, and correlation analysis</li>
+              <li>Explored model behavior across multiple configurations</li>
+              <li>Connected text and review features to passenger experience patterns</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen/airline-analysis" target="_blank" rel="noopener noreferrer">View Python Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top img-tableau"><span class="project-chip">Tableau Dashboard</span></div>
+          <div class="project-body">
+            <h3>Walmart Retail Performance Visual Analytics</h3>
+            <p>Retail dashboard and visual analytics project focused on sales, profit, shipping, category trends, and segment performance.</p>
+            <ul class="bullets">
+              <li>Answered profitability and regional performance questions</li>
+              <li>Used visuals to communicate retail patterns clearly</li>
+              <li>Focused on business storytelling with interactive analytics</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">Tableau</span><span class="tag">Retail Analytics</span><span class="tag">Visualization</span>
+              </div>
+              <a class="project-link" href="https://public.tableau.com/app/profile/sandela.sharan/vizzes" target="_blank" rel="noopener noreferrer">View Tableau Dashboard</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top img-sql-ecom"><span class="project-chip">SQL Analysis</span></div>
+          <div class="project-body">
+            <h3>E-Commerce Customer & Revenue Intelligence</h3>
+            <p>SQL-based analysis of customer spending, product performance, repeat customer behavior, and revenue trends.</p>
+            <ul class="bullets">
+              <li>Identified top customers and high-revenue markets</li>
+              <li>Measured product demand and performance trends</li>
+              <li>Applied joins, aggregations, subqueries, and window functions</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">SQL</span><span class="tag">Joins</span><span class="tag">Window Functions</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen/ecommerce-sql-analysis" target="_blank" rel="noopener noreferrer">View SQL Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top img-sql-ride"><span class="project-chip">SQL Analysis</span></div>
+          <div class="project-body">
+            <h3>Ride-Sharing Demand & Revenue Analysis</h3>
+            <p>Ride-sharing analytics project focused on city-level revenue, user behavior, operational demand, and driver performance.</p>
+            <ul class="bullets">
+              <li>Ranked cities by revenue and ride activity</li>
+              <li>Identified top users and demand patterns</li>
+              <li>Converted ride data into practical business insights</li>
+            </ul>
+            <div class="project-footer">
+              <div class="tags">
+                <span class="tag">SQL</span><span class="tag">Analytics</span><span class="tag">Operations</span>
+              </div>
+              <a class="project-link" href="https://github.com/manisharan0902-netizen/ride-sharing-sql-analysis" target="_blank" rel="noopener noreferrer">View SQL Project</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div class="kicker">Contact</div>
+        <h2 class="section-title">Let’s connect</h2>
+        <p class="section-sub">Open to data analyst opportunities, networking, and portfolio feedback.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="panel">
+          <h3 style="margin-top:0;font-family:'Space Grotesk',sans-serif;font-size:26px;">Contact Details</h3>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Name</strong>Sharan</div>
+            <div class="contact-item"><strong>Email</strong><a href="mailto:manisharan0902@gmail.com">manisharan0902@gmail.com</a></div>
+            <div class="contact-item"><strong>Phone</strong><a href="tel:+910000000000">+91 00000 00000</a></div>
+            <div class="contact-item"><strong>GitHub</strong><a href="https://github.com/manisharan0902-netizen" target="_blank" rel="noopener noreferrer">github.com/manisharan0902-netizen</a></div>
+            <div class="contact-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/mani-sandela" target="_blank" rel="noopener noreferrer">linkedin.com/in/mani-sandela</a></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3 style="margin-top:0;font-family:'Space Grotesk',sans-serif;font-size:26px;">What changed</h3>
+          <p class="section-sub" style="max-width:none">
+            This version uses a completely different visual style, warmer colors, stronger contrast,
+            and project-specific images such as ride-sharing imagery for the ride project and retail imagery for the e-commerce project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Sharan • Data Analyst Portfolio</footer>
+  </main>
+</body>
+</html>
